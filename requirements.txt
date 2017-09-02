@@ -1,0 +1,11 @@
+##############################
+### AirCursor Dependencies ###
+##############################
+#
+# Use the following command before running the tool to install all related dependencies
+# `pip install -r requirements.txt`
+#
+python-xlib
+pyautogui
+opencv-python
+
