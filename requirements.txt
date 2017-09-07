@@ -7,5 +7,4 @@
 #
 python-xlib
 pyautogui
-opencv-python
-
+numpy

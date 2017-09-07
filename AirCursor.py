@@ -6,7 +6,7 @@ import pyautogui
 
 
 def main():
-    print 'asd'
+    print(cv2.__version__)
     video_feed = cv2.VideoCapture(0)
 
     while True:
@@ -24,7 +24,6 @@ def main():
     # release the web-cam
     video_feed.release()
     cv2.destroyAllWindows()
-
 
 if __name__ == "__main__":
     main()
