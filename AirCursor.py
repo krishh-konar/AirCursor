@@ -9,15 +9,18 @@ import utilities
 
 def main():
     detector = utilities.Detector()
-    lower_skin_thresh, upper_skin_thresh = detector.caliberate_hsv_values()
+    mouse = utilities.Mouse()
 
+    lower_skin_thresh, upper_skin_thresh = detector.caliberate_hsv_values()
     if np.array_equal(lower_skin_thresh, np.array([0, 0, 0], dtype=int)) and \
-       np.array_equal(upper_skin_thresh, np.array([0, 0, 0], dtype=int)):
+            np.array_equal(upper_skin_thresh, np.array([0, 0, 0], dtype=int)):
         # default values for detection
-        lower_skin_thresh = np.array([0, 53, 148], dtype=int)
-        upper_skin_thresh = np.array([46, 101, 240], dtype=int)
+        lower_skin_thresh = np.array([0, 78, 103], dtype=int)
+        upper_skin_thresh = np.array([35, 125, 170], dtype=int)
 
     video_feed = cv2.VideoCapture(0)
+    print pyautogui.size()
+    print video_feed.read()[1].shape
 
     while True:
         _, screen = video_feed.read()
@@ -34,13 +37,16 @@ def main():
         blurred_threshold_final = cv2.medianBlur(blurred_threshold, ksize=5)
 
         #cv2.imshow("Video Feed", screen_hsv)
-        cv2.imshow("final", blurred_threshold_final)
+        # cv2.imshow("final", blurred_threshold_final)
 
         contours, _ = cv2.findContours(blurred_threshold_final.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         biggest_contour = max(contours, key=lambda x: cv2.contourArea(x))
 
         hand = np.zeros(shape = blurred_threshold_final.shape)
         cv2.drawContours(hand, [biggest_contour], 0, (255, 255, 255), 2)
+
+        # pinpointing cursor location for movement
+        mouse.move_cursor(biggest_contour)
         cv2.imshow("Hand", hand)
 
         #break out of the loop (exit program)

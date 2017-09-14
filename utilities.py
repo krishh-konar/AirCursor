@@ -81,4 +81,24 @@ class Detector:
         return lower_skin_thresh, upper_skin_thresh
 
 
+class Mouse:
+    screen_resolution = pyautogui.size()
+    video_feed = cv2.VideoCapture(0)
+    cam_resolution = video_feed.read()[1]
+    # print cam_resolution
+    video_feed.release()
+    cv2.destroyAllWindows()
 
+    def __int__(self):
+        pass
+
+    def move_cursor(self, hand_contour):
+        moment = cv2.moments(hand_contour)
+        centre_x = int(moment['m10'] / moment['m00'])
+        centre_y = int(moment['m01'] / moment['m00'])
+        pointer_x = int((centre_x * self.screen_resolution[0]) / self.cam_resolution.shape[1])
+        pointer_y = int((centre_y * self.screen_resolution[1]) / self.cam_resolution.shape[0])
+        # cv2.circle(hand, (centre_x, centre_y), 7, (255, 255, 255), -1)
+        pyautogui.moveTo(pointer_x, pointer_y, 0.1)
+        # cv2.imshow("Hand", hand)
+        return
