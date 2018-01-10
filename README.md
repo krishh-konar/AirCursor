@@ -18,3 +18,10 @@ Upon starting a program, a calibration program opens up. Use the calibration win
 **Note:** The default values are dependent on a particular environmental conditions and may change considerably from environment to environment. It is advised to calibrate the values once and replace them in the program in order to skip the process.
 
 Once calibration is finished, a newer window pops up showing the contour of hand and controlling the hand, along with mouse control. Press `q` to quit the program. 
+
+
+## DA WoC WarmUp tasks:
+
+* Learn about Virtual Environments and set up one for Python.
+* Compile and Install OpenCV 2 (using or without using CUDA support(nVidia GPU))
+* Pull this repo and execute the current program
