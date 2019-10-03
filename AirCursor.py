@@ -19,8 +19,8 @@ def main():
         upper_skin_thresh = np.array([35, 125, 170], dtype=int)
 
     video_feed = cv2.VideoCapture(0)
-    print pyautogui.size()
-    print video_feed.read()[1].shape
+    print(pyautogui.size())
+    print(video_feed.read()[1].shape)
 
     while True:
         _, screen = video_feed.read()

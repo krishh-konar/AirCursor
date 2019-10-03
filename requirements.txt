@@ -1,10 +1,20 @@
-##############################
 ### AirCursor Dependencies ###
 ##############################
 #
 # Use the following command before running the tool to install all related dependencies
 # `pip install -r requirements.txt`
 #
-python-xlib
-pyautogui
-numpy
+MouseInfo==0.0.4
+numpy==1.17.2
+opencv-contrib-python==4.1.1.26
+opencv-python==4.1.1.26
+Pillow==6.2.0
+PyAutoGUI==0.9.47
+PyGetWindow==0.0.7
+PyMsgBox==1.0.7
+pyperclip==1.7.0
+PyRect==0.1.4
+PyScreeze==0.1.22
+python-xlib==0.25
+PyTweening==1.0.3
+six==1.12.0
